@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Elemento 3D</title>
+</head>
+
+<style type="text/css">
+
+.face.front{
+  background-color: red;
+  -webkit-transform: translateZ(100px);
+     -moz-transform: translateZ(100px);
+}
+
+.face.right{
+  background-color: green;
+  -webkit-transform: translateX(100px) rotateY(90deg);
+     -moz-transform: translateX(100px) rotateY(90deg);
+}
+
+.face.left{
+  background-color: blue;
+  -webkit-transform: translateX(-100px) rotateY(-90deg);
+     -moz-transform: translateX(-100px) rotateY(-90deg);
+}
+
+.face.back {
+  background-color: orange;
+  -webkit-transform: translateZ(-100px) rotateY(180deg);
+     -moz-transform: translateZ(-100px) rotateY(180deg);
+}
+
+
+
+  .area {
+
+      width: 480px;
+      height: 320px;
+     -webkit-transform: translate(100%, 50px);
+        -moz-transform: translate(100%, 50px);  
+   
+       /* perspectiva adicionada à cena... */
+      -webkit-perspective: 600px;
+         -moz-perspective: 600px;
+              perspective: 600px;
+
+  }
+
+  .cube  {
+   
+     position: absolute;
+     top:140px;
+     left:120px;
+     width: 200px;
+     height: 200px;
+
+     /* dizemos ao CSS que o nosso objeto é tridimensional... */
+     -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+
+     -webkit-transform: rotateX(-45deg) rotateY(-45deg);
+        -moz-transform: rotateX(-45deg) rotateY(-45deg);
+
+     -webkit-animation: xrotation 3s ease 0s infinite; 
+        -moz-animation: xrotation 3s ease 0s infinite;     
+
+  }
+
+
+/* Animations */
+
+@-webkit-keyframes xrotation{
+
+  from{ transform: rotateX(0deg); }
+    to{ transform: rotateX(360deg); }
+
+}
+
+
+@-moz-keyframes xrotation{
+
+  from{ transform: rotateX(0deg); }
+    to{ transform: rotateX(360deg); }
+
+}
+
+
+
+.face {
+
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  /* Adicionamos opacidade de 50% aos objetos... */
+  opacity: .5;
+}
+
+
+
+
+</style>
+<body>
+
+<div class="area">
+  <div class="cube">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face left"></div>
+    <div class="face right"></div>
+  </div>
+</div>
+  
+</body>
+</html>
